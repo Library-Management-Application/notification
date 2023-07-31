@@ -37,13 +37,11 @@ public class MemberServiceRestTemplate {
 
     public List<String> getEmailAddressAll() {
 
-        log.debug("Calling Member Service");
+        log.info("Calling Member Service");
 
         ResponseEntity<List<String>> responseEntity = restTemplate
                 .exchange(memberServiceHost + MEMBER_PATH, HttpMethod.GET, null,
                         new ParameterizedTypeReference<List<String>>(){});
-
-
 
         List<String>  emailAddresses = Objects.requireNonNull(responseEntity.getBody());
 

@@ -11,7 +11,6 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -36,8 +35,8 @@ public class EmailService {
         log.debug(libEvent.toString());
 
         SimpleMailMessage message = new SimpleMailMessage();
-        //List<String> emailAddresses = restTemplate.getEmailAddressAll();
-        List<String> emailAddresses = Arrays.asList("najibs1@yahoo.com");
+
+        List<String> emailAddresses = restTemplate.getEmailAddressAll();
 
         // Create a thread safe "copy" of the template message and customize it
         SimpleMailMessage msg = new SimpleMailMessage(message);
